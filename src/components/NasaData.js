@@ -13,23 +13,23 @@ export default function Data() {
         .then(response => {
             setNasaData(response.data);
             // const dataArray = Object.values(response.data)
-            // console.log(dataArray);
+            console.log(response.data);
         })
         .catch(error => {
             console.log("The data was not returned", error);
         });
     }, []);
-    const dataArray = Object.keys(nasaData).map(i => nasaData[i])
-    console.log(dataArray);
+    
+ 
     
     return (
         <Container className="data">
             <Row>
                 <NasaCard 
                     key={'1'}
-                    title = {dataArray[6]}
-                    description = {dataArray[2]}
-                    image = {dataArray[7]}
+                    title = {nasaData.title}
+                    description = {nasaData.explanation}
+                    image = {nasaData.url}
                     />
             </Row>
         </Container>
